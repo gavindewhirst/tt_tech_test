@@ -1,5 +1,2 @@
-boto3
-simplejson
-requests_toolbelt
-python-multipart
-aws_xray_sdk
+pandas
+numpy

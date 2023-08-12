@@ -5,7 +5,7 @@ class dbAccess():
   _dataJsonFull = None
 
   def __init__(self) -> None:
-    self._dataJsonFull = pd.read_json("/home/gavin/Development/gavin_technical_test/app/data/db.json")
+    self._dataJsonFull = pd.read_json("/var/task/data/db.json")
 
   def readAllRecords(self) -> pd.DataFrame:
     return self._dataJsonFull

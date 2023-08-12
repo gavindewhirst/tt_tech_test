@@ -10,6 +10,7 @@ resource "aws_lambda_function" "gavintechtest-gateway" {
   image_uri     = "${aws_ecr_repository.gavintechtest-gateway.repository_url}:latest"
   package_type  = "Image"
   timeout = 10
+  memory_size = 1769 # let it have a single CPU
   function_name = "gavintechtest-gateway"
   role          = "arn:aws:iam::680118005139:role/service-role/spine-builder-role-w9pu06bh" # SORT THIS
   image_config {

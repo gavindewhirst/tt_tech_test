@@ -28,28 +28,31 @@ def lambda_handler(event, context):
     handler = ratings()
     
   status, eventResponse = handler.process_event(event=event)
-  
+  root.info("Processed.")
   # send the response
   if status is not None and eventResponse is not None:
     responseBody = responses.responseBasic
-    responseBody["status"] = status
+    #responseBody["status"] = status
     responseBody["body"] = json.dumps(eventResponse)
+    root.info("outputting good")
+    root.info(responseBody)
     return responseBody
   else:
+    root.info("outputting")
     return responses.responseErrorBadData
 
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
 
-  nEve = {
-    "resource": "/ratings", 
-    "queryStringParameters" : 
-      {
-        "sessionId": "631abfeb-2cf3-4381-b966-3db9c5c7b67f",
-        "userId": "d3351574-af98-426d-a00c-48d1fd27899d", 
-        "sort": "userId"
-      }
-  }
+#   nEve = {
+#     "resource": "/ratings", 
+#     "queryStringParameters" : 
+#       {
+#         "sessionId": "631abfeb-2cf3-4381-b966-3db9c5c7b67f",
+#         "userId": "d3351574-af98-426d-a00c-48d1fd27899d", 
+#         "sort": "userId"
+#       }
+#   }
 
 
-  lambda_handler(nEve, None)
+#   lambda_handler(nEve, None)
