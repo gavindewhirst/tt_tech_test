@@ -42,12 +42,14 @@ def lambda_handler(event, context):
 if __name__ == "__main__":
 
   nEve = {
-    "resource": "/lap_times", 
+    "resource": "/ratings", 
     "queryStringParameters" : 
       {
-        "userId": "nnn", 
-        "sort": "uuid"
+        "sessionId": "631abfeb-2cf3-4381-b966-3db9c5c7b67f",
+        "userId": "d3351574-af98-426d-a00c-48d1fd27899d", 
+        "sort": "userId"
       }
   }
+
 
   lambda_handler(nEve, None)

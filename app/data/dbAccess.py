@@ -11,7 +11,7 @@ class dbAccess():
     return self._dataJsonFull
   
   def readOneUser(self, userId) -> pd.DataFrame:
-    return self._dataJsonFull[self._dataJsonFull["uid"] == userId]
+    return self._dataJsonFull[(self._dataJsonFull.uid == userId)]
 
   def readOneUserOneSession(self, userId, sessionId)  -> pd.DataFrame :
-    return self._dataJsonFull[self._dataJsonFull["uid"] == userId and self._dataJsonFull["sid"] == sessionId]
+    return self._dataJsonFull[(self._dataJsonFull.uid == userId) & (self._dataJsonFull.sid == sessionId)]
