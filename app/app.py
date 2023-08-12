@@ -1,37 +1,12 @@
 # Imports
-import logging
 import json
-from aws_xray_sdk.core import patch_all
-import os
-import hashlib
-import routes.lap_times as lap_times
-import routes.route_interface
+import logging
+import responses.responses as responses
+from routes.ratings_route import ratings
+from routes.lap_times_route import LapTimes
 
 root = logging.getLogger()
 root.setLevel(logging.INFO)
-patch_all()
-
-responseGood = {
-  "statusCode": 200,
-  "headers": { 
-    "Content-Type": "application/json",                     
-    "Access-Control-Allow-Headers": 'Content-Type',         # CORS
-    "Access-Control-Allow-Origin": "*",                     # CORS
-    "Access-Control-Allow-Methods": "OPTIONS,POST,GET"      # CORS
-    },     
-  "isBase64Encoded": False
-  }
-
-responseErrorBadData = {
-  "statusCode": 422,
-  "headers": { 
-    "Content-Type": "application/json",                     
-    "Access-Control-Allow-Headers": 'Content-Type',         # CORS
-    "Access-Control-Allow-Origin": "*",                     # CORS
-    "Access-Control-Allow-Methods": "OPTIONS,POST,GET"      # CORS
-    },  
-  "isBase64Encoded": False,
-  }
 
 def lambda_handler(event, context):
 
@@ -41,15 +16,38 @@ def lambda_handler(event, context):
   try:
     path = event["resource"]
   except:
-    return responseErrorBadData
+    return responses.responseErrorBadData
+  
+  eventResponse = None
+  status = None
+  handler = None
 
   if path == '/lap_times':
+    handler = LapTimes()
+  if path == '/ratings':
+    handler = ratings()
     
+  status, eventResponse = handler.process_event(event=event)
+  
+  # send the response
+  if status is not None and eventResponse is not None:
+    responseBody = responses.responseBasic
+    responseBody["status"] = status
+    responseBody["body"] = json.dumps(eventResponse)
+    return responseBody
+  else:
+    return responses.responseErrorBadData
 
 
+if __name__ == "__main__":
 
+  nEve = {
+    "resource": "/lap_times", 
+    "queryStringParameters" : 
+      {
+        "userId": "nnn", 
+        "sort": "uuid"
+      }
+  }
 
-    return responseGood
-
-
-  return responseErrorBadData
+  lambda_handler(nEve, None)

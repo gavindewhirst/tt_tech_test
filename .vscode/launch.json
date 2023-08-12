@@ -6,14 +6,14 @@
     "configurations": [
     
         {
-            "name": "librarian-test-harness",
+            "name": "gavin-test-harness",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceFolder}/app/main.py",
+            "program": "${workspaceFolder}/app/app.py",
             "args": [
                 "run",
             ],
-            "jinja": true
+            
         }
     ]
 }
