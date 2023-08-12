@@ -11,19 +11,6 @@ class ratings(routesInterface):
 
     uidlist = allrecords["uid"].unique()
 
-    # our rating will be based on : 
-    ## lap time monotony - how consistent the laps have been (average/SD)
-    ## fastest lap time - how fast is the fastest lap
-    
-    # fastest laps with great monotony values = WINNING COMBINATION (should rate highly)
-    # we're going to give them a rating based on their fastest laptime - we'll directly grab the percentile
-    # we'll then mark on monotony
-    # Monotony
-    ## < 10 = terrible   - *1
-    ## < 50 = ok         - *2
-    ## < 100 = not bad   - *3
-    ## > 100 = excellent - *5
-
     ratingsList = []
     for uid in uidlist:
 

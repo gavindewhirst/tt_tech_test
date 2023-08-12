@@ -77,6 +77,13 @@ target/
 # Jupyter Notebook
 .ipynb_checkpoints
 
+
+# terraform 
+deploy/infra/.terraform
+deploy/infra/.terraform.lock.hcl
+deploy/infra/terraform.tfstate
+deploy/infra/terraform.tfstate.backup
+
 # IPython
 profile_default/
 ipython_config.py
