@@ -57,7 +57,7 @@ resource "aws_lambda_permission" "allow-api-gavintechtest" {
 }
 
 
-### search [GET] ->  function.shelfradar-gateway ######################
+### ratings [GET] ->  function.shelfradar-gateway ######################
 resource "aws_api_gateway_resource" "ratings" {
   rest_api_id = aws_api_gateway_rest_api.gavintechtest-gateway.id
   parent_id = aws_api_gateway_rest_api.gavintechtest-gateway.root_resource_id
@@ -81,7 +81,7 @@ resource "aws_api_gateway_integration" "ratings_GET_integration" {
 ###################################
 
 
-### search [GET] ->  function.shelfradar-gateway ######################
+### lap_times [GET] ->  function.shelfradar-gateway ######################
 resource "aws_api_gateway_resource" "lap_times" {
   rest_api_id = aws_api_gateway_rest_api.gavintechtest-gateway.id
   parent_id = aws_api_gateway_rest_api.gavintechtest-gateway.root_resource_id

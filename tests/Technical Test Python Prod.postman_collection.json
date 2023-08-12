@@ -1,0 +1,257 @@
+{
+	"info": {
+		"_postman_id": "86d66842-2210-4d02-93f6-6aebc6f7a4b3",
+		"name": "Technical Test Python",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "lap_times",
+			"item": [
+				{
+					"name": "No Query Params",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://qsyz2pjz3l.execute-api.eu-west-1.amazonaws.com/stage_prod/lap_times?",
+							"protocol": "https",
+							"host": [
+								"qsyz2pjz3l",
+								"execute-api",
+								"eu-west-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"stage_prod",
+								"lap_times"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Single User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://qsyz2pjz3l.execute-api.eu-west-1.amazonaws.com/stage_prod/lap_times?userId=2388ff45-aa4c-4178-973e-309bc84a2ce4",
+							"protocol": "https",
+							"host": [
+								"qsyz2pjz3l",
+								"execute-api",
+								"eu-west-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"stage_prod",
+								"lap_times"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "2388ff45-aa4c-4178-973e-309bc84a2ce4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Single User, Single Session",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://qsyz2pjz3l.execute-api.eu-west-1.amazonaws.com/stage_prod/lap_times?userId=2388ff45-aa4c-4178-973e-309bc84a2ce4&sessionId=30e0b9a9-8305-45e9-b769-93ef7ecb2f53",
+							"protocol": "https",
+							"host": [
+								"qsyz2pjz3l",
+								"execute-api",
+								"eu-west-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"stage_prod",
+								"lap_times"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "2388ff45-aa4c-4178-973e-309bc84a2ce4"
+								},
+								{
+									"key": "sessionId",
+									"value": "30e0b9a9-8305-45e9-b769-93ef7ecb2f53"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Single User, Single Session - Sorted by Laptime",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://qsyz2pjz3l.execute-api.eu-west-1.amazonaws.com/stage_prod/lap_times?userId=2388ff45-aa4c-4178-973e-309bc84a2ce4&sessionId=30e0b9a9-8305-45e9-b769-93ef7ecb2f53&sort=lapTime",
+							"protocol": "https",
+							"host": [
+								"qsyz2pjz3l",
+								"execute-api",
+								"eu-west-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"stage_prod",
+								"lap_times"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "2388ff45-aa4c-4178-973e-309bc84a2ce4"
+								},
+								{
+									"key": "sessionId",
+									"value": "30e0b9a9-8305-45e9-b769-93ef7ecb2f53"
+								},
+								{
+									"key": "sort",
+									"value": "lapTime"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Users - sorted by userId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://qsyz2pjz3l.execute-api.eu-west-1.amazonaws.com/stage_prod/lap_times?sort=userId",
+							"protocol": "https",
+							"host": [
+								"qsyz2pjz3l",
+								"execute-api",
+								"eu-west-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"stage_prod",
+								"lap_times"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "userId"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lap Times sorted by lapTime, userid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://qsyz2pjz3l.execute-api.eu-west-1.amazonaws.com/stage_prod/lap_times?sort=lapTime,userId",
+							"protocol": "https",
+							"host": [
+								"qsyz2pjz3l",
+								"execute-api",
+								"eu-west-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"stage_prod",
+								"lap_times"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "lapTime,userId"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lap Times sorted by userId, lapTime",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://qsyz2pjz3l.execute-api.eu-west-1.amazonaws.com/stage_prod/lap_times?sort=userId,lapTime",
+							"protocol": "https",
+							"host": [
+								"qsyz2pjz3l",
+								"execute-api",
+								"eu-west-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"stage_prod",
+								"lap_times"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "userId,lapTime"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ratings",
+			"item": [
+				{
+					"name": "Rating",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://qsyz2pjz3l.execute-api.eu-west-1.amazonaws.com/stage_prod/ratings",
+							"protocol": "https",
+							"host": [
+								"qsyz2pjz3l",
+								"execute-api",
+								"eu-west-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"stage_prod",
+								"ratings"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
